@@ -6,6 +6,7 @@ pipeline {
         parallel(
           "build": {
             echo 'something'
+            waitForQualityGate()
             
           },
           "code analyze": {
