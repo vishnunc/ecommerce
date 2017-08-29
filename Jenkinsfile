@@ -4,16 +4,16 @@ pipeline {
     stage('build') {
       steps {
         parallel(
-          "build dev": {
+          "build": {
             echo 'something'
             
           },
-          "build master": {
-            echo 'somehting'
+          "code analyze": {
+            echo 'blah'
             
           },
-          "build qa": {
-            echo 'something'
+          "unit test": {
+            echo 'blah'
             
           }
         )
