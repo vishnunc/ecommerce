@@ -14,6 +14,7 @@ pipeline {
           },
           "unit test": {
             echo 'blah'
+            waitForQualityGate()
             
           }
         )
