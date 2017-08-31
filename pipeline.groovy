@@ -30,7 +30,7 @@ pipeline{
 			steps{
 				echo 'blah'
 			}
-			xyz
+			
 			
 			aaa
 		}
