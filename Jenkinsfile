@@ -35,8 +35,8 @@ pipeline {
           "code analyze": {
             tool name: 'SonaScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
             withSonarQubeEnv('SonarScanner') { // from SonarQube servers > name
-    		sh "${SonarScanner}/bin/sonar-scanner"
-		    //sh "${HOME}/.jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/Sonar/bin/sonar-runner -Dsonar.projectName=ecommerce -Dsonar.projectVersion=1.0 -Dsonar.projectKey=ecommerce -Dsonar.sources=src/main/java -Dsonar.java.binaries=target/classes"
+    		//sh "${SonarScanner}/bin/sonar-scanner"
+		    sh "/home/ec2-user/sonar-runner-2.4/bin/sonar-runner -Dsonar.projectName=ecommerce -Dsonar.projectVersion=1.0 -Dsonar.projectKey=ecommerce -Dsonar.sources=src/main/java -Dsonar.java.binaries=target/classes"
             }
           },
           "unit tests": {
