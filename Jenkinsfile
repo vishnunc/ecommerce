@@ -26,6 +26,7 @@ pipeline {
 		    export SONAR_RUNNER_HOME=/opt/sonarrunner
                     echo ${SONAR_RUNNER_HOME}
                 ''' */
+	      bat 'set PATH = %PATH%'
          bat 'mvn clean compile'
       }
     }
