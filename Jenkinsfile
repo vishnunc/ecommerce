@@ -71,11 +71,11 @@ pipeline {
       steps {
 	parallel(
 		"smoke test":{
-        bat 'C:\Program Files\Git\bin\git clone https://github.com/vishnunc/ecommerce-uitests.git ecommerce-smoke-uitests'
+        bat 'C:/Program Files/Git/bin/git clone https://github.com/vishnunc/ecommerce-uitests.git ecommerce-smoke-uitests'
         bat 'cd ecommerce-smoke-uitests && ./gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber/smoke report --continue'
 	},
 	"api test":{
-	bat 'C:\Program Files\Git\bin\git clone https://github.com/vishnunc/ecommerce-apitests.git ecommerce-apitests'
+	bat 'C:/Program Files/Git/bin/git clone https://github.com/vishnunc/ecommerce-apitests.git ecommerce-apitests'
         bat 'cd ecommerce-smoke-uitests && ./gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber/smoke report --continue'
 	}) 
       }
@@ -91,7 +91,7 @@ pipeline {
 	//agent {label 'qa'}
       steps {
         
-        bat 'C:\Program Files\Git\bin\git clone https://github.com/vishnunc/ecommerce-uitests.git'
+        bat 'C:/Program Files/Git/bin/git clone https://github.com/vishnunc/ecommerce-uitests.git'
        
         bat 'cd ecommerce-uitests && ./gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber report --continue'
         
