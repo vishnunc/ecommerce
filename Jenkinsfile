@@ -3,6 +3,7 @@ pipeline {
   tools { 
         maven 'MAVEN' 
 	jdk 'JAVA'
+	gradle 'GRADLE'
         
     }
   stages {
@@ -43,11 +44,11 @@ pipeline {
             }*/
 		  withSonarQubeEnv('Sonar') {
       // requires SonarQube Scanner for Maven 3.2+
-      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+      bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
     }
           },
           "unit tests": {
-           sh 'mvn test'
+           bat 'mvn test'
             
           }
         )
