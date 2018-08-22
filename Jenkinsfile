@@ -11,8 +11,9 @@ pipeline {
     stage('code pull') {
 	    //agent {label 'master'}
       steps {
-	//bat 'taskkill /F /IM java.exe'
-        git url:'https://github.com/vishnunc/ecommerce.git'
+	bat 'taskkill /F /IM java.exe'
+	checkout scm
+        //git url:'https://github.com/vishnunc/ecommerce.git'
         echo 'Git checkout complete'
       }
     }
