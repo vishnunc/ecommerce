@@ -79,12 +79,12 @@ pipeline {
 		"smoke test":{
 	bat 'rmdir /S /Q ecommerce-smoke-uitests'	
         bat 'git clone https://github.com/vishnunc/ecommerce-uitests.git ecommerce-smoke-uitests'
-        bat 'cd ecommerce-smoke-uitests && ./gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber/smoke report --continue'
+        bat 'cd ecommerce-smoke-uitests && gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber/smoke report --continue'
 	},
 	"api test":{
 		bat 'rmdir /S /Q ecommerce-apitests'
 	bat 'git clone https://github.com/vishnunc/ecommerce-apitests.git ecommerce-apitests'
-        bat 'cd ecommerce-apitests && ./gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber report --continue'
+        bat 'cd ecommerce-apitests && gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber report --continue'
 	}) 
       }
     }
@@ -95,14 +95,21 @@ pipeline {
         bat 'mvn package'
       }
     }
-    stage('ui tests') {
+    stage('qa tests') {
 	//agent {label 'qa'}
       steps {
+	parallel(
+		"ui tests":{
         bat 'rmdir /S /Q ecommerce-uitests'
         bat 'git clone https://github.com/vishnunc/ecommerce-uitests.git'
        
-        bat 'cd ecommerce-uitests && ./gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber report --continue'
-        
+        bat 'cd ecommerce-uitests && gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber report --continue'
+		},
+		"performance tests":{
+			bat 'rmdir /S /Q Jmeter'
+        		bat 'git clone https://github.com/vishnunc/Jmeter.git'	
+			bat 'cd Jmeter'
+		})
       }
     }
  
