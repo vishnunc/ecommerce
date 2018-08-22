@@ -33,7 +33,7 @@ pipeline {
       steps {
         parallel(
           "code analyze": {
-            tool name: 'SonaScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+            tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
             withSonarQubeEnv('SonarScanner') { // from SonarQube servers > name
     		//sh "${SonarScanner}/bin/sonar-scanner"
 		    sh "/home/ec2-user/sonar-runner-2.4/bin/sonar-runner -Dsonar.projectName=ecommerce -Dsonar.projectVersion=1.0 -Dsonar.projectKey=ecommerce -Dsonar.sources=src/main/java -Dsonar.java.binaries=target/classes"
