@@ -4,6 +4,7 @@ pipeline {
         maven 'MAVEN' 
 	jdk 'JAVA'
 	gradle 'GRADLE'
+	 git 'GIT'
         
     }
   stages {
