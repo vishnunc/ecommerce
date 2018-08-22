@@ -1,36 +1,36 @@
 pipeline {
-	agent none	
+	agent any	
   tools { 
         maven 'MAVEN3.5.4' 
         
     }
   stages {
     stage('code pull') {
-	    agent {label 'master'}
+	    //agent {label 'master'}
       steps {
         checkout scm
         echo 'Git checkout complete'
       }
     }
     stage('build') {
-	agent {label 'master'}    
+	//agent {label 'master'}    
       steps {
          /*slackSend channel: '#jenkins',
 				color: 'good',
 				message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
 				baseUrl: "https://qentelli.slack.com/services/hooks/jenkins-ci/",
 				token:"HFi8BU1ac67whUX4kc9Ka1Z7" */
-         sh '''
+         /*sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
 		    export SONAR_RUNNER_HOME=/opt/sonarrunner
                     echo ${SONAR_RUNNER_HOME}
-                ''' 
+                ''' */
          sh 'mvn clean compile'
       }
     }
     stage('test') {
-	 agent {label 'master'}   
+	// agent {label 'master'}   
       steps {
         parallel(
           "code analyze": {
@@ -52,7 +52,7 @@ pipeline {
       }
     }
     stage('dev-deploy') {
-	agent {label 'qa'}   
+	//agent {label 'qa'}   
       steps {
         script{
         	withEnv(['JENKINS_NODE_COOKIE=dontKill']){
@@ -64,7 +64,7 @@ pipeline {
       }
     }
     stage('smoke test') {
-	agent {label 'qa'}   
+	//agent {label 'qa'}   
       steps {
         bat 'rm -rf ecommerce-smoke-uitests'
         bat 'git clone https://github.com/vishnunc/ecommerce-uitests.git ecommerce-smoke-uitests'
@@ -73,14 +73,14 @@ pipeline {
       }
     }
     stage('qa-deploy') {
-	agent {label 'qa'} 
+	//agent {label 'qa'} 
       steps {
         
         bat 'mvn package'
       }
     }
     stage('ui tests') {
-	agent {label 'qa'}
+	//agent {label 'qa'}
       steps {
         bat 'rm -rf ecommerce-uitests'
         bat 'git clone https://github.com/vishnunc/ecommerce-uitests.git'
