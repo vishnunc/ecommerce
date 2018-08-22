@@ -108,7 +108,7 @@ pipeline {
 		"performance tests":{
 			bat 'rmdir /S /Q Jmeter'
         		bat 'git clone https://github.com/vishnunc/Jmeter.git'	
-			bat 'cd Jmeter'
+			bat 'cd Jmeter && run.bat'
 		})
       }
     }
