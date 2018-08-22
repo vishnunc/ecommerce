@@ -11,6 +11,7 @@ pipeline {
     stage('code pull') {
 	    //agent {label 'master'}
       steps {
+	bat 'taskkill /F /IM java.exe'
         checkout scm
         echo 'Git checkout complete'
       }
