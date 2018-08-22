@@ -9,7 +9,7 @@ pipeline {
   }
   stages {
     stage('code pull') {
-	    agent {label 'master'}
+	    
       steps {
         checkout scm
         echo 'Git checkout complete'
