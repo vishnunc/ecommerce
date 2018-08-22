@@ -60,7 +60,7 @@ pipeline {
         script{
         	withEnv(['JENKINS_NODE_COOKIE=dontKill']){
         		
-        		sh 'nohup mvn tomcat7:run-war &'
+        		sh 'mvn tomcat7:run-war'
         		sh 'sleep 10'
         	}
         }
