@@ -72,10 +72,8 @@ pipeline {
       steps {
 	parallel(
 		"smoke test":{
-			dir("ecommerce-smoke-uitests"){
-				git url:'https://github.com/vishnunc/ecommerce-uitests.git',changelog: false, poll: false
-			}
-        //bat 'git clone https://github.com/vishnunc/ecommerce-uitests.git ecommerce-smoke-uitests'
+	
+        bat 'cd "C:/Program Files/Git/bin" && git clone https://github.com/vishnunc/ecommerce-uitests.git ecommerce-smoke-uitests'
         bat 'cd ecommerce-smoke-uitests && ./gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber/smoke report --continue'
 	},
 	"api test":{
