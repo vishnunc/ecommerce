@@ -57,8 +57,8 @@ pipeline {
         script{
         	withEnv(['JENKINS_NODE_COOKIE=dontKill']){
         		
-        		sh 'mvn tomcat7:run-war'
-        		sh 'sleep 10'
+        		bat 'mvn tomcat7:run-war'
+        		
         	}
         }
       }
@@ -66,9 +66,9 @@ pipeline {
     stage('smoke test') {
 	agent {label 'qa'}   
       steps {
-        sh 'rm -rf ecommerce-smoke-uitests'
-        sh 'git clone https://github.com/vishnunc/ecommerce-uitests.git ecommerce-smoke-uitests'
-        sh 'cd ecommerce-smoke-uitests && ./gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber/smoke report --continue'
+        bat 'rm -rf ecommerce-smoke-uitests'
+        bat 'git clone https://github.com/vishnunc/ecommerce-uitests.git ecommerce-smoke-uitests'
+        bat 'cd ecommerce-smoke-uitests && ./gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber/smoke report --continue'
         
       }
     }
@@ -76,16 +76,16 @@ pipeline {
 	agent {label 'qa'} 
       steps {
         
-        sh 'mvn package'
+        bat 'mvn package'
       }
     }
     stage('ui tests') {
 	agent {label 'qa'}
       steps {
-        sh 'rm -rf ecommerce-uitests'
-        sh 'git clone https://github.com/vishnunc/ecommerce-uitests.git'
+        bat 'rm -rf ecommerce-uitests'
+        bat 'git clone https://github.com/vishnunc/ecommerce-uitests.git'
        
-        sh 'cd ecommerce-uitests && ./gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber report --continue'
+        bat 'cd ecommerce-uitests && ./gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber report --continue'
         
       }
     }
