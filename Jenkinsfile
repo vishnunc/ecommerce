@@ -60,7 +60,7 @@ pipeline {
         script{
         	withEnv(['JENKINS_NODE_COOKIE=dontKill']){
         		
-        		bat 'START /B mvn tomcat7:run-war'
+        		bat 'start runapp.bat'
         		
         	}
         }
