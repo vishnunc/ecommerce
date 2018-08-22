@@ -26,7 +26,7 @@ pipeline {
 		    export SONAR_RUNNER_HOME=/opt/sonarrunner
                     echo ${SONAR_RUNNER_HOME}
                 ''' */
-	      bat 'set PATH = %PATH%'
+	      bat 'set JAVA_HOME = C:\Program Files\Java\jdk1.8.0_181'
          bat 'mvn clean compile'
       }
     }
