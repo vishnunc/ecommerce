@@ -1,5 +1,5 @@
 pipeline {
-  agent none	
+	agent {label 'qa'}	
   tools { 
         maven 'MAVEN3.5.4' 
         
@@ -16,7 +16,7 @@ pipeline {
       }
     }
     stage('build') {
-	    agent {label 'master'}
+	    
       steps {
          /*slackSend channel: '#jenkins',
 				color: 'good',
@@ -33,7 +33,7 @@ pipeline {
       }
     }
     stage('test') {
-	    agent {label 'master'}
+	    
       steps {
         parallel(
           "code analyze": {
@@ -55,7 +55,7 @@ pipeline {
       }
     }
     stage('dev-deploy') {
-	    agent {label 'master'}
+	   
       steps {
         script{
         	withEnv(['JENKINS_NODE_COOKIE=dontKill']){
@@ -67,7 +67,7 @@ pipeline {
       }
     }
     stage('smoke test') {
-	    agent {label 'qa'}
+	   
       steps {
         sh 'rm -rf ecommerce-smoke-uitests'
         sh 'git clone https://github.com/vishnunc/ecommerce-uitests.git ecommerce-smoke-uitests'
@@ -76,14 +76,14 @@ pipeline {
       }
     }
     stage('qa-deploy') {
-	    agent {label 'qa'}
+	 
       steps {
         
         sh 'mvn package'
       }
     }
     stage('ui tests') {
-	    agent {label 'qa'}
+	
       steps {
         sh 'rm -rf ecommerce-uitests'
         sh 'git clone https://github.com/vishnunc/ecommerce-uitests.git'
