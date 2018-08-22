@@ -112,6 +112,7 @@ pipeline {
 			bat 'rmdir /S /Q Jmeter'
         		bat 'git clone https://github.com/vishnunc/Jmeter.git'	
 			bat 'cd Jmeter && run.bat'
+			perfReport compareBuildPrevious: true, modeOfThreshold: true, percentiles: '0,50,90,100', sourceDataFiles: '**/*.jtl'
 		})
       }
     }
