@@ -26,7 +26,7 @@ pipeline {
 		    export SONAR_RUNNER_HOME=/opt/sonarrunner
                     echo ${SONAR_RUNNER_HOME}
                 ''' */
-         sh 'mvn clean compile'
+         bat 'mvn clean compile'
       }
     }
     stage('test') {
