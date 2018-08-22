@@ -1,5 +1,5 @@
 pipeline {
-  agent qa
+  agent label qa
   tools { 
         maven 'MAVEN3.5.4' 
         
