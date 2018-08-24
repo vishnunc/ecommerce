@@ -62,7 +62,6 @@ This includes the users:
 ```
 mvn clean package
 ```
-
 ### 3.2 Build and Deploy Project into Embedded Tomcat Server
 
 ```
