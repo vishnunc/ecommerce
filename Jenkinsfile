@@ -142,8 +142,7 @@ pipeline {
       reportFiles: 'overview-features.html',
       reportName: "Regression Test Report"
     ])
-    
-    logstashSend failBuild: true, maxLines: 100000
+   
   	}
   }
 }
