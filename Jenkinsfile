@@ -78,13 +78,13 @@ pipeline {
 	parallel(
 		"smoke test":{
 	//bat 'rmdir /S /Q ecommerce-smoke-uitests'	
-        //bat 'git clone https://github.com/vishnunc/ecommerce-uitests.git ecommerce-smoke-uitests'
+        bat 'git clone https://github.com/vishnunc/ecommerce-uitests.git ecommerce-smoke-uitests'
         bat 'cd ecommerce-smoke-uitests && gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber/smoke report --continue'
 	cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: 'ecommerce-smoke-uitests'
 	},
 	"api test":{
 	//	bat 'rmdir /S /Q ecommerce-apitests'
-	//bat 'git clone https://github.com/vishnunc/ecommerce-apitests.git ecommerce-apitests'
+	bat 'git clone https://github.com/vishnunc/ecommerce-apitests.git ecommerce-apitests'
         bat 'cd ecommerce-apitests && gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber report --continue'
 	cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: 'ecommerce-apitests'
 	}) 
@@ -103,14 +103,14 @@ pipeline {
 	parallel(
 		"ui tests":{
         //bat 'rmdir /S /Q ecommerce-uitests'
-       // bat 'git clone https://github.com/vishnunc/ecommerce-uitests.git'
+        bat 'git clone https://github.com/vishnunc/ecommerce-uitests.git'
        
         bat 'cd ecommerce-uitests && gradlew cucumber -Pfeatures=src/test/resources/gradle/cucumber report --continue'
 	cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: 'ecommerce-uitests'	
 	},
 		"performance tests":{
 			//bat 'rmdir /S /Q Jmeter'
-        		//bat 'git clone https://github.com/vishnunc/Jmeter.git'	
+        		bat 'git clone https://github.com/vishnunc/Jmeter.git'	
 			bat 'cd Jmeter && run.bat'
 			perfReport compareBuildPrevious: true, modeOfThreshold: true, percentiles: '0,50,90,100', sourceDataFiles: '**/*.jtl'
 		})
