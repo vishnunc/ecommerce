@@ -3,7 +3,7 @@
 
 Introductory E-Commerce Web App built on Spring 3.2 using JavaConfig.
 ## Technology Stack
-
+#
 |  Technology           | Version           |
 | --------------------- | ----------------- |
 |   JDK                 | 1.7               |
