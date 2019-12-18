@@ -1,5 +1,5 @@
 # spring-ecommerce
-## 22-July:: This is a Demo for DevOps
+## 18-Dev:: Just a minor change to trigger the pipeline
 ##
 #
 Introductory E-Commerce Web App built on Spring 3.2 using JavaConfig.
