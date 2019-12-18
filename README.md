@@ -1,5 +1,5 @@
 # spring-ecommerce
-## 18-Dec:: Just a minor change to trigger the pipeline
+## 18-Dec:: Just one more minor change to trigger the pipeline
 ##
 #
 Introductory E-Commerce Web App built on Spring 3.2 using JavaConfig.
