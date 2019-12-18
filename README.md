@@ -1,5 +1,5 @@
 # spring-ecommerce
-## 18-Dec:: Triggering the Pipeline
+## 18-Dec-2019:: Triggering the Pipeline
 ##
 #
 Introductory E-Commerce Web App built on Spring 3.2 using JavaConfig.
