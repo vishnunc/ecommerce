@@ -1,6 +1,7 @@
 # spring-ecommerce
-
-
+## 21-Dec-2019:: Pipeline is triggered based on this edit
+##
+#
 Introductory E-Commerce Web App built on Spring 3.2 using JavaConfig.
 ## Technology Stack
 
@@ -18,7 +19,7 @@ Introductory E-Commerce Web App built on Spring 3.2 using JavaConfig.
 |   JUnit               | 4.11              |
 |   Tomcat              | 7.0.47            |
 |   Thymeleaf           | 2.1.2.RELEASE     |
-
+#
 Theming and direction was taken from the [Spring Tutorials](https://spring.io/guides/tutorials/web/) on *Implementing
  a Web Application*.
 
