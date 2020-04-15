@@ -7,7 +7,7 @@ Introductory E-Commerce Web App built on Spring 3.2 using JavaConfig.
 
 |  Technology           | Version           |
 | --------------------- | ----------------- |
-|   JDK                 | 1.7               |
+|   JDK                 | 1.8               |
 |   IntelliJ Idea       | 13.0 Enterprise   |
 |   Maven               | 3.0.+             |
 |   Git                 | 1.8               |
