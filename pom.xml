@@ -28,7 +28,7 @@
 
     <thymeleaf.version>2.1.2.RELEASE</thymeleaf.version>
 
-    <tomcat.version>7.0.47</tomcat.version>
+    <tomcat.version>7.0.81</tomcat.version>
   </properties>
 
   <dependencies>
